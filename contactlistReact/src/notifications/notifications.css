@@ -1,0 +1,37 @@
+
+#confirmDeleteModal{
+    width: 24rem;
+    height: 10rem;
+    background-color: #e6e9f3;
+    border: 2px solid orange;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 7px;
+    background-color: #c1ccf3;
+    position: fixed;
+    top: 5rem;
+    left: calc(50% - 10rem);
+    >.header{
+        background: orange;
+        padding: 10px;
+    }
+    >.footer{
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        >button{
+            padding: 5px 10px;
+            width: 4rem;
+            border-radius: 5px;
+            border: none;
+            background-color: rgb(46, 45, 45);
+            color: white;
+        }
+        >button:nth-child(2){
+            background-color: red;
+
+        }
+    }
+}
+

@@ -1,0 +1,57 @@
+#form{
+    background-color:#404f6c ;
+    width: 23em;
+    border-radius: 20px;
+    position: fixed;
+    top: calc(50% - 12rem);
+    left: calc(50% - 12rem);
+    color: white;
+    z-index: 10;
+    >form{
+        display: grid;
+        gap: 2rem;
+        padding:2rem;
+        >input{
+            padding:10px 15px;
+            font-size: medium;
+            background-color: #404f6c;
+            border: none;
+            border-left:1px solid aliceblue ;
+            border-bottom: 1px solid aliceblue;
+            border-radius: 10px 0  10px 0;
+            color: aliceblue;
+        }
+        >input:focus{
+            outline: none;
+        }
+        >::placeholder{
+            color: white !important;
+        }
+    }
+    #create{
+        width: 6rem;
+        padding:10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #9ba4b6;
+        color: aliceblue;
+    }
+   >#formHeader{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        >h3{
+            flex: 1;
+            text-align: center;
+            font-size: 2rem;
+        }
+        >#close{
+            font-size: 23px;
+            border-radius: 5px;
+            border: none;
+            background: transparent;
+            color: white
+        }
+
+    }
+}
