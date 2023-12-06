@@ -37,7 +37,6 @@ async function getAllContacts(page, limit, search) {
                     { firstName: { $regex: search, $options: 'i' } },
                     { lastName: { $regex: search, $options: 'i' } },
                     { email: { $regex: search, $options: 'i' } },
-                    { phno: { $regex: search, $options: 'i' } }
                 ],
             };
         }

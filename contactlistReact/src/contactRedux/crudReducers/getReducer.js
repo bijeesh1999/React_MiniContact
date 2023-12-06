@@ -7,6 +7,7 @@ const initialState = {
   error: null,
   currentPage: null,
   limit: null,
+  search:null
 };
 
 export const fetchData = createAsyncThunk("get/fetchData", async ({page,search}) => {
@@ -14,12 +15,10 @@ export const fetchData = createAsyncThunk("get/fetchData", async ({page,search})
     const res = await axios.get("http://localhost:2000", {
       params: {
         page,
-        limit:3,
-        search
+        limit:5,
+        search,
       },
     });
-
-    console.log(res.data);
     return res.data;
   } catch (error) {
     throw error;
@@ -29,11 +28,7 @@ export const fetchData = createAsyncThunk("get/fetchData", async ({page,search})
 const contactSlice = createSlice({
   name: "get",
   initialState,
-  reducers: {
-    getAlldata: (state, action) => {
-      state.allData = action.payload;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchData.pending, (state) => {
@@ -42,6 +37,8 @@ const contactSlice = createSlice({
       .addCase(fetchData.fulfilled, (state, action) => {
         state.loading = false;
         state.allData = action.payload;
+        state.currentPage = action.payload.currentPage;
+        state.limit = action.payload.limit;
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.loading = false;
@@ -50,5 +47,4 @@ const contactSlice = createSlice({
   },
 });
 
-export const { getAlldata } = contactSlice.actions;
 export default contactSlice.reducer;

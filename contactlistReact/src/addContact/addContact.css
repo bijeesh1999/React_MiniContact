@@ -1,40 +1,55 @@
 #form{
-    background-color:#404f6c ;
+    background-color:#dde1f9 ;
     width: 23em;
     border-radius: 20px;
     position: fixed;
-    top: calc(50% - 12rem);
+    top: calc(50% - 14rem);
     left: calc(50% - 12rem);
-    color: white;
     z-index: 10;
+    box-shadow: 0px 7px 15px black;
     >form{
         display: grid;
-        gap: 2rem;
+        gap: 1.5rem;
         padding:2rem;
-        >input{
-            padding:10px 15px;
-            font-size: medium;
-            background-color: #404f6c;
-            border: none;
-            border-left:1px solid aliceblue ;
-            border-bottom: 1px solid aliceblue;
-            border-radius: 10px 0  10px 0;
-            color: aliceblue;
+        >.inptField{
+            display: grid;
+            >input{
+                display: grid;
+                padding:10px 15px;
+                font-size: medium;
+                background-color: #dde1f9;
+                border: none;
+                border-left:1px solid black ;
+                border-bottom: 1px solid black;
+                border-radius: 10px 0  10px 0;
+                box-shadow: 0px 7px 15px gray;
+                color: rgb(51, 50, 50);
+            }
+            >input:focus{
+                outline: none;
+            }
+            >::placeholder{
+                color: rgb(27, 26, 26) !important;
+            }
+            >span{
+                display: flex;
+                padding: 0 10px;
+                justify-content: flex-end;
+                font-size: 14px;
+                font-weight: 500;
+                color: red;
+            }
         }
-        >input:focus{
-            outline: none;
-        }
-        >::placeholder{
-            color: white !important;
-        }
+
     }
     #create{
         width: 6rem;
         padding:10px;
         border: none;
         border-radius: 5px;
-        background-color: #9ba4b6;
-        color: aliceblue;
+        background-color: #2dcf2d;
+        color: black;
+        font-weight: 800;
     }
    >#formHeader{
         display: flex;
@@ -50,7 +65,7 @@
             border-radius: 5px;
             border: none;
             background: transparent;
-            color: white
+            color: black
         }
 
     }

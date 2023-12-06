@@ -1,19 +1,23 @@
 
 #confirmDeleteModal{
-    width: 24rem;
-    height: 10rem;
+    width: 27rem;
+    height: 13rem;
     background-color: #e6e9f3;
     border: 2px solid orange;
     display: flex;
+    align-items: center;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 7px;
     background-color: #c1ccf3;
     position: fixed;
-    top: 5rem;
+    top: 10rem;
+    z-index: 10;
     left: calc(50% - 10rem);
+    box-shadow: 0px 7px 15px black;
     >.header{
         background: orange;
+        width: 100%;
         padding: 10px;
     }
     >.footer{
@@ -21,8 +25,8 @@
         display: flex;
         justify-content: space-around;
         >button{
-            padding: 5px 10px;
-            width: 4rem;
+            padding: 9px 10px;
+            width: 5rem;
             border-radius: 5px;
             border: none;
             background-color: rgb(46, 45, 45);

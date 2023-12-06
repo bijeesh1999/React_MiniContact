@@ -6,6 +6,9 @@ import Contact_Form from "../addContact/addContact";
 import Footer from "../footer/footer";
 
 
+
+
+
 function Table() {
 
   const [modal,setModal]=useState(false)

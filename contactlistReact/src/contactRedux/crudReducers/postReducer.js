@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import  axios from "axios";
-
+import 'react-toastify/dist/ReactToastify.css';
 
 const initialState={
     postingData:false,
@@ -9,12 +9,13 @@ const initialState={
 }
 
 export const postData = createAsyncThunk("post/postData", async (postedData) => {
-    const res=await axios.post("http://localhost:2000", postedData)
-    console.log("postData:", res.data); // Assuming the response data is what you want to store
-    return res.data;
-
+    try {
+        const res = await axios.post("http://localhost:2000", postedData);
+        return res.data;
+    } catch (error) {
+        return error;
+    }
 });
-
 
 const postSlice=createSlice({
     name:"post",
@@ -26,7 +27,6 @@ const postSlice=createSlice({
     },
 });
 
-export const {postSingleData} = postSlice.actions;
 
 export default postSlice.reducer
 

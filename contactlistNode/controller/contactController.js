@@ -1,7 +1,7 @@
 // controllers/contactController.js
 const contactService = require('./services');
 
-async function getAllContact(req, res) {
+async function getAllContact(req, res , next) {
     try {
         const { page, limit, search } = req.query;
         const results = await contactService.getAllContacts(parseInt(page), parseInt(limit), search);
@@ -12,13 +12,13 @@ async function getAllContact(req, res) {
     }
 }
 
-async function createContact(req, res) {
+async function createContact(req, res , next) {
     const { firstName, lastName, email, phno } = req.body;
     const contact = { firstName, lastName, email, phno };
     const validationErrors = contactService.contactValidation(contact);
 
     if (validationErrors.length > 0) {
-        res.status(400).json({ error: validationErrors });
+        res.status(400).json(validationErrors)  
     } else {
         try {
             const createdContact = await contactService.createContact(contact);

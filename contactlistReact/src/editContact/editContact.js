@@ -1,20 +1,39 @@
-import {useState} from "react";
-import {useDispatch } from "react-redux";
-import {updateDataAsync } from "../contactRedux/crudReducers/putReducer";
+import React, { useState, useEffect } from "react";
+import { useDispatch,useSelector } from "react-redux";
+import { updateDataAsync } from "../contactRedux/crudReducers/putReducer";
 import { fetchData } from "../contactRedux/crudReducers/getReducer";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import "./editContact.css";
 
-function EditForm({ setEditModal, id, data ,setOverlay}) {
-  const dispatch = useDispatch();
-  const editingData = data.find((data) => data._id === id);
+function EditForm({ setEditModal, id, allData, setOverlay }) {
+
+  const {currentPage,search,}=useSelector((state)=>state.get)
 
   const [formData, setFormData] = useState({
-    firstName: editingData ? editingData.firstName : "",
-    lastName: editingData ? editingData.lastName : "",
-    email: editingData ? editingData.email : "",
-    phno: editingData ? editingData.phno : "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phno: "",
   });
 
+  const dispatch = useDispatch();
+
+  const editingData = allData?.find(data => {
+    return data._id === id;
+  });
+  ;
+
+  useEffect(() => {
+    if (editingData) {
+      setFormData({
+        firstName: editingData.firstName ,
+        lastName: editingData.lastName,
+        email: editingData.email ,
+        phno: editingData.phno ,
+      });
+    }
+  }, [editingData]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,15 +43,22 @@ function EditForm({ setEditModal, id, data ,setOverlay}) {
     }));
   };
 
-  const handleFormSubmit = async(e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     await dispatch(updateDataAsync({ id, updatedData: formData }))
-    await dispatch(fetchData());
-    setEditModal(false)
-    setOverlay(false)
-    console.log("exit")
+    await dispatch(fetchData({page:currentPage,search}));
+    toast.success("contact Updated Sucessfully !",{
+      autoClose: 1000,
+      style: {
+        backgroundColor: "black",
+        color: "white",
+        border: "1px solid green",
+    }})
+    setEditModal(false);
+    setOverlay(false);
+    console.log("exit");
   };
-  
+
 
   return (
     <div id="form">
@@ -41,16 +67,16 @@ function EditForm({ setEditModal, id, data ,setOverlay}) {
       </div>
       <form onSubmit={handleFormSubmit}>
         <input
-          type="name"
+          type="text"
           name="firstName"
           className="firstName"
           value={formData.firstName}
           onChange={handleInputChange}
         />
         <input
-          type="name"
+          type="text"
           name="lastName"
-          className="firstName"
+          className="lastName"
           value={formData.lastName}
           onChange={handleInputChange}
         />
@@ -62,7 +88,7 @@ function EditForm({ setEditModal, id, data ,setOverlay}) {
           onChange={handleInputChange}
         />
         <input
-          type="phone"
+          type="tel"
           name="phno"
           className="phno"
           value={formData.phno}
@@ -72,7 +98,9 @@ function EditForm({ setEditModal, id, data ,setOverlay}) {
           <button id="update" type="submit">
             Update
           </button>
-          <button >Cancel</button>
+          <button type="button" onClick={() => {setEditModal(false) ; setOverlay(false)}}>
+            Cancel
+          </button>
         </div>
       </form>
     </div>
@@ -80,4 +108,3 @@ function EditForm({ setEditModal, id, data ,setOverlay}) {
 }
 
 export default EditForm;
-

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAlldata, fetchData } from "../contactRedux/crudReducers/getReducer";
+import { fetchData } from "../contactRedux/crudReducers/getReducer";
 import Edit_Form from "../editContact/editContact";
 import DeleteModal from "../notifications/deleteModal";
 import "../App.css";
@@ -11,11 +11,10 @@ function TableData({ setOverlay }) {
   const [deleteModal, setDeleteModal] = useState(false);
   const [id, setId] = useState('');
 
-  const { allData, loading, error,currentPage } = useSelector((state) => state.get);
-  console.log(allData);
+  const { allData, loading, error,currentPage} = useSelector((state) => state.get);
 
   useEffect(() => {
-    dispatch(fetchData({ page: currentPage }));
+    dispatch(fetchData({ page: currentPage}));
   }, [dispatch,currentPage]);
 
   const editId = (id) => {
@@ -27,37 +26,44 @@ function TableData({ setOverlay }) {
     setDeleteModal(true);
     setId(id);
   };
+  // const serialNumber = (currentPage - 1) * 5 + index + 1;
+
 
   return (
     <>
       <tbody>
         {Array.isArray(allData?.contactResult) &&
-          allData?.contactResult.map((item, index) => (
-            <tr className="data" key={index}>
-              <td>{index + 1}</td>
-              <td>{item.firstName} {item.lastName}</td>
-              <td>{item.email}</td>
-              <td>{item.phno}</td>
-              <td>
-                <i
-                  className="fa-solid fa-pen-to-square"
-                  onClick={() => {
-                    editId(item._id);
-                    setOverlay(true);
-                  }}
-                />
-                <i
-                  className="fa-solid fa-trash"
-                  onClick={() => {
-                    deleteId(item._id);
-                  }}
-                />
-              </td>
-            </tr>
-          ))}
+          allData?.contactResult.map((item, index) => {
+            const serialNumber = (currentPage - 1) * 5 + index + 1;
+
+            return (
+              <tr className="data" key={index}>
+                <td>{serialNumber}</td>
+                <td>{item.firstName} {item.lastName}</td>
+                <td>{item.email}</td>
+                <td>{item.phno}</td>
+                <td>
+                  <i
+                    className="fa-solid fa-pen-to-square"
+                    onClick={() => {
+                      editId(item._id);
+                      setOverlay(true);
+                    }}
+                  />
+                  <i
+                    className="fa-solid fa-trash"
+                    onClick={() => {
+                      deleteId(item._id);
+                      setOverlay(true);
+                    }}
+                  />
+                </td>
+              </tr>
+            );
+          })}
       </tbody>
-      {editmodal && <Edit_Form setEditModal={setEditModal} setOverlay={setOverlay} id={id} data={allData} />}
-      {deleteModal && <DeleteModal setDeleteModal={setDeleteModal} id={id} data={allData} />}
+      {editmodal && <Edit_Form setEditModal={setEditModal} setOverlay={setOverlay} id={id} allData={allData.contactResult} />}
+      {deleteModal && <DeleteModal setDeleteModal={setDeleteModal} id={id} setOverlay={setOverlay} />}
     </>
   );
 }

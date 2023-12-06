@@ -27,12 +27,8 @@ const editSlice=createSlice({
             const {id,value}=action.payload;
             state.editFormData[id]=value
         },
-        resetData:(state)=>{
-            state.editFormData=initialState.editFormData
-        }
+
     }
 })
-
-export const{resetData}=editSlice.actions;
 
 export default editSlice.reducer;
