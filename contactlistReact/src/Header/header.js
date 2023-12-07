@@ -1,12 +1,15 @@
 import React from "react";
-import SearchBar from "./searchBar";
+import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
 import "../App.css";
 
 function Header(props) {
+
+  const {contactLengh}=useSelector((state)=>state.get)
+
   return (
     <div id="header">
       <h1>{props.title}</h1>
-      <SearchBar />
+      <span style={{color:"white"}}>{contactLengh}</span>
     </div>
   );
 }

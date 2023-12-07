@@ -6,6 +6,11 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./addContact.css";
 
+/*
+*It is the Component to creating new contact form.
+*It has validated form for adding contact to some validation
+*/
+
 function Contact_Form({ setModal, setOverlay }) {
   const [error, setError] = useState();
   const dispatch = useDispatch();

@@ -4,22 +4,22 @@ import TableData from "./tableData";
 import Header from "../Header/header";
 import Contact_Form from "../addContact/addContact";
 import Footer from "../footer/footer";
+import SearchBar from "../Header/searchBar";
 
-
-
-
+/*
+*This is the main Table component .
+*The Table component getting all table relatec Child component
+*/
 
 function Table() {
-
   const [modal,setModal]=useState(false)
   const [overlay,setOverlay]=useState(false)
-  
 
-/*  */
   return (
     <>
       <Header title="Contact List" />
       <div id="container">
+        <SearchBar />
         <table>
             <TableHead />
             <TableData  setOverlay={setOverlay}/>

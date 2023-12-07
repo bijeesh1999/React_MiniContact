@@ -33,6 +33,7 @@
   margin: auto;
   min-height: 63.5vh;
   gap: 1rem;
+  position: relative;
 }
 
 table {
@@ -75,6 +76,23 @@ tr:nth-child(even){
   background-color: #404f6c;
   margin-bottom: 3.5rem;
   color: aliceblue;
+  >h1{
+    position: relative;
+  }
+  >span{
+    color: aliceblue; 
+    position: absolute;
+    top: 20px;
+    right: calc(50% - 7rem);
+    background-color: black;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 2px solid aliceblue;
+    font-size: 14px;
+    font-weight: 700;
+
+  }
 }
 .addContact{
   padding: 10px;

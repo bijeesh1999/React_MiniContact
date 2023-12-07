@@ -3,7 +3,7 @@ import Table from './Table/table';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
-// import Contact_Form from './addContact/addContact';
+/* Here is getting Table component and Popup flash message component */
 
 function App() {
   return (

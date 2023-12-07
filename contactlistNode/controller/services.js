@@ -47,6 +47,7 @@ async function getAllContacts(page, limit, search) {
         const endIndex = page * limit;
 
         const results = {
+            contactLengh:allContacts.length,
             pageCount: Math.ceil(allContacts.length / limit),
             currentPage: page,
             contactResult: allContacts.slice(startIndex, endIndex),

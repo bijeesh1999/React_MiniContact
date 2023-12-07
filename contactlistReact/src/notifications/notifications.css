@@ -11,7 +11,7 @@
     border-radius: 7px;
     background-color: #c1ccf3;
     position: fixed;
-    top: 10rem;
+    top: 9rem;
     z-index: 10;
     left: calc(50% - 10rem);
     box-shadow: 0px 7px 15px black;
@@ -19,6 +19,10 @@
         background: orange;
         width: 100%;
         padding: 10px;
+    }
+    #deleteName{
+        background-color:orange;
+        padding: 0 10px;
     }
     >.footer{
         padding: 10px;

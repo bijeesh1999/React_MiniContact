@@ -1,18 +1,25 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+/**
+ * It is the Redux getReducer for getting all data from the mongo db.
+ * Here is getting the data with the help of query
+ * Here is using extraReducer for managing asynchronous data fetchig.
+ */
+
+
 const initialState = {
   allData: null,
   loading: false,
   error: null,
   currentPage: null,
-  limit: null,
-  search:null
+  contactLengh:null
 };
+
 
 export const fetchData = createAsyncThunk("get/fetchData", async ({page,search}) => {
   try {
-    const res = await axios.get("http://localhost:2000", {
+    const res = await axios.get(process.env.REACT_APP_API, {
       params: {
         page,
         limit:5,
@@ -24,6 +31,7 @@ export const fetchData = createAsyncThunk("get/fetchData", async ({page,search})
     throw error;
   }
 });
+
 
 const contactSlice = createSlice({
   name: "get",
@@ -39,6 +47,7 @@ const contactSlice = createSlice({
         state.allData = action.payload;
         state.currentPage = action.payload.currentPage;
         state.limit = action.payload.limit;
+        state.contactLengh=action.payload.contactLengh;
       })
       .addCase(fetchData.rejected, (state, action) => {
         state.loading = false;

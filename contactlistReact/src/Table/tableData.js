@@ -5,6 +5,12 @@ import Edit_Form from "../editContact/editContact";
 import DeleteModal from "../notifications/deleteModal";
 import "../App.css";
 
+/*
+ * It is the Table Body component .
+ * Here is getting all data and set in the table row by row.
+ * Here is setting edit form component and delete contact component as child.
+ */
+
 function TableData({ setOverlay }) {
   const dispatch = useDispatch();
   const [editmodal, setEditModal] = useState(false);
@@ -26,8 +32,6 @@ function TableData({ setOverlay }) {
     setDeleteModal(true);
     setId(id);
   };
-  // const serialNumber = (currentPage - 1) * 5 + index + 1;
-
 
   return (
     <>

@@ -4,7 +4,9 @@ import { fetchData } from '../contactRedux/crudReducers/getReducer';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./notifications.css";
-/*  */
+
+/* It is the popup component for deleting single contact using id. */
+
 const DeleteModal = ({setDeleteModal,id,setOverlay}) => {
 
     const dispatch=useDispatch();
@@ -26,13 +28,12 @@ const DeleteModal = ({setDeleteModal,id,setOverlay}) => {
             }});
     }
 
-
     return(
         <div id='confirmDeleteModal'>
             <div className='header'>
                 <h3 style={{width:"100%"}}>Alert</h3>
             </div>
-            <h4 style={{maxWidth:"75%"}}>do u want delete {`${deleteData?.firstName} ${deleteData?.lastName}`} frome this contact</h4>
+            <h4 style={{maxWidth:"75%"}}>do u want delete <span id='deleteName'>{`${deleteData?.firstName} ${deleteData?.lastName}`}</span>from this contact</h4>
             <div className='footer'style={{width:"100%"}}>
                 <button onClick={()=>{setDeleteModal(false) ; setOverlay(false)}}>Cancel</button>
                 <button onClick={()=>{deleteHandler(id); setOverlay(false) }}>Delete</button>

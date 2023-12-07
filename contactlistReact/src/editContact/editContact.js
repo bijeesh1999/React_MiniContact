@@ -6,6 +6,11 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import "./editContact.css";
 
+/*
+*It is the form component for editing contact .
+* Here is getting a purticular contact using id and update 
+*/
+
 function EditForm({ setEditModal, id, allData, setOverlay }) {
 
   const {currentPage,search,}=useSelector((state)=>state.get)

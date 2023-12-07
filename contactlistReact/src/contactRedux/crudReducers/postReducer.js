@@ -2,6 +2,11 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import  axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 
+/**
+ * This is reduxReducer for posting single data from the addContact , Contact_Form 
+ * component and post it mongo db 
+ */
+
 const initialState={
     postingData:false,
     postedData:[],
@@ -10,7 +15,7 @@ const initialState={
 
 export const postData = createAsyncThunk("post/postData", async (postedData) => {
     try {
-        const res = await axios.post("http://localhost:2000", postedData);
+        const res = await axios.post(process.env.REACT_APP_API, postedData);
         return res.data;
     } catch (error) {
         return error;

@@ -7,9 +7,9 @@ function TableHead() {
       <tr>
         <th>sino</th>
         <th>Name</th>
-        <th>email</th>
-        <th>phone number</th>
-        <th>crud</th>
+        <th>Email</th>
+        <th>Phone number</th>
+        <th>Actions</th>
       </tr>
     </thead>
   );

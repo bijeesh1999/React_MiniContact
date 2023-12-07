@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../contactRedux/crudReducers/getReducer";
 import "./footer.css";
 
+/**
+ * Here is setting pagination from the backend 
+ */
+
 const Footer = () => {
   const dispatch = useDispatch();
 
   const currentPage = useSelector((state) => state.get.allData?.currentPage);
   const totalPage = useSelector((state) => state.get.allData?.pageCount);
-
-  // console.log(totalPage,currentPage);
 
   const startingPage = () => {
     dispatch(fetchData({ page: 1 }));

@@ -1,9 +1,9 @@
 #search{
     width: 10em;
-    transition: 1s;
-    position: fixed;
-    top: 7.5em;
-    right: 15rem;
+    transition: .7s;
+    position: absolute;
+    right: 6.5rem;
+    top: -2.5rem;
     font-size: 14px;
     outline: none;
     padding: 6px 10px;
