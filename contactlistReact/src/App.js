@@ -1,4 +1,5 @@
 import { ToastContainer } from 'react-toastify';
+import Header from './Header/header';
 import Table from './Table/table';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
     <ToastContainer />
+    <Header />
     <Table />
     </>
   );

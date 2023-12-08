@@ -8,14 +8,12 @@ import 'react-toastify/dist/ReactToastify.css';
  */
 
 const initialState={
-    postingData:false,
     postedData:[],
-    postError:false,
 }
 
-export const postData = createAsyncThunk("post/postData", async (postedData) => {
+export const postData = createAsyncThunk("post/postData", async (newData) => {
     try {
-        const res = await axios.post(process.env.REACT_APP_API, postedData);
+        const res = await axios.post(process.env.REACT_APP_API, newData);
         return res.data;
     } catch (error) {
         return error;

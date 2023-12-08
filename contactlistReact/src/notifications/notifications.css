@@ -3,25 +3,24 @@
     width: 27rem;
     height: 13rem;
     background-color: #e6e9f3;
-    border: 2px solid orange;
+    border: 2px solid #404f6c;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 7px;
-    background-color: #c1ccf3;
     position: fixed;
     top: 9rem;
     z-index: 10;
     left: calc(50% - 10rem);
     box-shadow: 0px 7px 15px black;
     >.header{
-        background: orange;
+        border-bottom: 0.1px solid grey;
         width: 100%;
         padding: 10px;
     }
     #deleteName{
-        background-color:orange;
+        background-color:white;
         padding: 0 10px;
     }
     >.footer{

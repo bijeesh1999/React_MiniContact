@@ -9,14 +9,12 @@ function SearchBar() {
 
     const searchData = (e) => {
         setSearch(e.target.value);
-
-        // Dispatch the fetchData action with page set to 1 and search set to the input value
         dispatch(fetchData({ page: 1,limit:"", search: e.target.value }));
     };
 
     return (
         <>
-            <input id="search" type="search" placeholder="search..." onChange={searchData} value={search} />
+            <input id="search" type="search" placeholder="search..." onChange={searchData}  />
         </>
     );
 }

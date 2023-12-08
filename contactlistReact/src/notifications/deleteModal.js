@@ -33,7 +33,7 @@ const DeleteModal = ({setDeleteModal,id,setOverlay}) => {
             <div className='header'>
                 <h3 style={{width:"100%"}}>Alert</h3>
             </div>
-            <h4 style={{maxWidth:"75%"}}>do u want delete <span id='deleteName'>{`${deleteData?.firstName} ${deleteData?.lastName}`}</span>from this contact</h4>
+            <h4 style={{maxWidth:"75%"}}>Do you want delete <span id='deleteName'>{`${deleteData?.firstName} ${deleteData?.lastName}`}</span> from this contact ?</h4>
             <div className='footer'style={{width:"100%"}}>
                 <button onClick={()=>{setDeleteModal(false) ; setOverlay(false)}}>Cancel</button>
                 <button onClick={()=>{deleteHandler(id); setOverlay(false) }}>Delete</button>

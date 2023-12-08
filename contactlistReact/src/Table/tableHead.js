@@ -5,7 +5,7 @@ function TableHead() {
   return (
     <thead style={{backgroundColor:"#404f6c", color:"white"}}>
       <tr>
-        <th>sino</th>
+        <th>Si.No</th>
         <th>Name</th>
         <th>Email</th>
         <th>Phone number</th>

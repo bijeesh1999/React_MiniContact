@@ -36,8 +36,8 @@ function TableData({ setOverlay }) {
   return (
     <>
       <tbody>
-        {Array.isArray(allData?.contactResult) &&
-          allData?.contactResult.map((item, index) => {
+        {
+          allData?.contactResult?.map((item, index) => {
             const serialNumber = (currentPage - 1) * 5 + index + 1;
 
             return (

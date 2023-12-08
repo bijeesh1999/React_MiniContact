@@ -32,7 +32,6 @@ const editSlice=createSlice({
             const {id,value}=action.payload;
             state.editFormData[id]=value
         },
-
     }
 })
 

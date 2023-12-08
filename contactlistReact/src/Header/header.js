@@ -1,15 +1,17 @@
 import React from "react";
-import { UseSelector, useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import "../App.css";
 
-function Header(props) {
-
-  const {contactLengh}=useSelector((state)=>state.get)
+function Header() {
+  const { contactLengh } = useSelector((state) => state.get);
 
   return (
     <div id="header">
-      <h1>{props.title}</h1>
-      <span style={{color:"white"}}>{contactLengh}</span>
+      <h1>Contact_List</h1>
+      <div id="contacts">
+        <span className="count" style={{ color: "white" }}>{contactLengh}</span>
+        <i className="material-symbols-outlined">contacts_product</i>
+      </div>
     </div>
   );
 }

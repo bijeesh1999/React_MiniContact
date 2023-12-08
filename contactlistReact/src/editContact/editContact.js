@@ -8,7 +8,7 @@ import "./editContact.css";
 
 /*
 *It is the form component for editing contact .
-* Here is getting a purticular contact using id and update 
+*Here is getting a purticular contact using id and update 
 */
 
 function EditForm({ setEditModal, id, allData, setOverlay }) {
@@ -27,7 +27,6 @@ function EditForm({ setEditModal, id, allData, setOverlay }) {
   const editingData = allData?.find(data => {
     return data._id === id;
   });
-  ;
 
   useEffect(() => {
     if (editingData) {

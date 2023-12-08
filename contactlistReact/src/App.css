@@ -70,20 +70,20 @@ tr:nth-child(even){
 #header{
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 4rem;
   background-color: #404f6c;
   margin-bottom: 3.5rem;
   color: aliceblue;
   >h1{
     position: relative;
   }
-  >span{
+  .count{
     color: aliceblue; 
     position: absolute;
-    top: 20px;
-    right: calc(50% - 7rem);
+    top: 18px;
+    right: 3.8rem;
     background-color: black;
     width: 1.5rem;
     height: 1.5rem;
@@ -92,6 +92,14 @@ tr:nth-child(even){
     font-size: 14px;
     font-weight: 700;
 
+  }
+  #contacts{
+    display: flex;
+    >i{
+      font-size: 2.5rem;
+      transform: unset;
+      cursor: context-menu;
+    }
   }
 }
 .addContact{
